@@ -1,0 +1,16 @@
+model:
+  name: FabricDemoModel
+  culture: en-US
+  tables:
+    - name: fact_orders
+      partitions:
+        - name: DirectLakePartition
+          mode: DirectLake
+          source:
+            type: lakehouse
+            database: FabricDemoLakehouse
+            table: fact_orders
+      measures:
+        - name: Total Sales
+          expression: "SUM(fact_orders[LineTotal])"
+          formatString: "$#,0.00"

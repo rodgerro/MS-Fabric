@@ -1,0 +1,5 @@
+CustomerID,FirstName,LastName,Email,City,State
+1,Ava,Nguyen,ava@example.com,Austin,TX
+2,Ben,Patel,ben@example.com,Chicago,IL
+3,Carla,Lopez,carla@example.com,Phoenix,AZ
+4,Drew,Kim,drew@example.com,Dallas,TX

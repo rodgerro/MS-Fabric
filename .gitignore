@@ -1,0 +1,5 @@
+.DS_Store
+*.pbix
+*.pbip
+*.zip
+.ipynb_checkpoints/

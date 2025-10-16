@@ -1,0 +1,72 @@
+{
+  "name": "lakehouse_ingest_pipeline",
+  "properties": {
+    "description": "Example Fabric pipeline to copy CSVs to Lakehouse and trigger notebook.",
+    "activities": [
+      {
+        "name": "CopyCustomers",
+        "type": "Copy",
+        "dependsOn": [],
+        "typeProperties": {
+          "source": {
+            "type": "DelimitedTextSource",
+            "treatEmptyAsNull": true
+          },
+          "sink": {
+            "type": "LakehouseSink",
+            "table": "stg_customers"
+          }
+        },
+        "userProperties": [
+          {
+            "key": "note",
+            "value": "Copy customers.csv to staging"
+          }
+        ]
+      },
+      {
+        "name": "CopyOrders",
+        "type": "Copy",
+        "dependsOn": [],
+        "typeProperties": {
+          "source": {
+            "type": "DelimitedTextSource",
+            "treatEmptyAsNull": true
+          },
+          "sink": {
+            "type": "LakehouseSink",
+            "table": "stg_orders"
+          }
+        },
+        "userProperties": [
+          {
+            "key": "note",
+            "value": "Copy orders.csv to staging"
+          }
+        ]
+      },
+      {
+        "name": "RunNotebook",
+        "type": "Notebook",
+        "dependsOn": [
+          {
+            "activity": "CopyCustomers",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          },
+          {
+            "activity": "CopyOrders",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ],
+        "typeProperties": {
+          "notebookPath": "notebooks/fabric_etl_demo.ipynb",
+          "parameters": []
+        }
+      }
+    ]
+  }
+}
