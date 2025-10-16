@@ -1,6 +1,6 @@
 # Microsoft Fabric Portfolio – Starter Project
 
-This repo showcases a **mini end‑to‑end Microsoft Fabric solution** you can import into a Fabric Workspace or adapt for demos and interviews.
+This repo showcases a **mini end‑to‑end Microsoft Fabric solution** you can import into a Fabric Workspace 
 
 ## What’s inside
 ```
