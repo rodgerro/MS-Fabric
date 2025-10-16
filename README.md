@@ -36,10 +36,7 @@ You will ingest **Orders** and **Customers** CSVs into a **Lakehouse**, transfor
 - **Semantic Model (TMDL)**: `semantic-model/model.tmdl`
 - **Sample Data**: `data/customers.csv`, `data/orders.csv`
 
-## Notes
-- Files are intentionally small and self‑contained for portfolio use.
-- You can swap in your own datasets and extend transformations.
-- This repo uses **TMDL** for a text‑based semantic model; feel free to replace with a `.bim` if preferred.
+
 
 ---
 
